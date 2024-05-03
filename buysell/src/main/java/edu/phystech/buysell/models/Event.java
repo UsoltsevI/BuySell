@@ -22,7 +22,7 @@ public class Event {
     private Long id;
     @Column(name = "title")
     private String title;
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "text")
     private String description;
     @Column(name = "date")
     private String date;
