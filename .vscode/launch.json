@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BuySellApplication<buysell>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.phystech.buysell.BuySellApplication",
+            "projectName": "buysell",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
