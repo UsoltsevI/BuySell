@@ -1,37 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>BUYSELL</title>
-    </head>
-    <body>
-        <h1>BUYSELL</h1><hr>
-        <h4>Товары со всей России</h4>
+<head>
+    <meta charset="utf-8">
+    <title>BUYSELL</title>
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <h1 class="title">BUYSELL</h1><hr>
+    <h3 class="part1">Товары со всей России!</h3>
+    <div class="search_menu">
         <form action="/" method="get">
-            Поиск по названию объявления: <input type="text" name="title"/><br>
-            <input type="submit" value="Поиск"/>
+            <label for="search_line_id" class="search_line_label">Поиск по названию объявления:</label>
+            <input id="search_line_id" class="search_line" type="text" name="title" placeholder="Введите запрос"/>
+            <input class="search_bottom" type="submit" value="Поиск"/>
         </form>
-        <#list products as product>
-            <div>
-                <p><b>${product.title}</b> ${product.price} руб. | <a href="/product/${product.id}">Подробнее...</a></p>
-            </div>
-            <#else>
-            <h3>Товаров нет</h3>
-        </#list>
-        <hr>
-        <h3>Создать новый товар</h3>
-        <form action="/product/create" method="post" enctype="multipart/form-data">
-            Название объявления:    <input type="text" name="title"/><br><br>
-            Описание объявления:    <input type="text" name="description"/><br><br>
-            Цена:                   <input type="number" name="price"/><br><br>
-            Город:                  <input type="text" name="city"/><br><br>
-            Имя:                    <input type="text" name="author"/><br><br>
-            Фото 1:                 <input type="file" name="file1"/><br><br>
-            Фото 2:                 <input type="file" name="file2"/><br><br>
-            Фото 3:                 <input type="file" name="file3"/><br><br>
-            <input type="submit" value="Добавить товар"/>
-        </form>
-        <hr>
-        <h3>Перейти к расписанию</h3>
-        <p><a href="/events">События</a></p>
-    </body>
+    </div>
+    <#list products as product>
+        <div class="product">
+            <p><b>${product.title}</b> ${product.price} руб. | <a href="/product/${product.id}">Подробнее...</a></p>
+        </div>
+        <#else>
+        <h3>Товаров нет</h3>
+    </#list>
+
+    <h3>Создать новый товар</h3>
+    <form action="/product/create" method="post" enctype="multipart/form-data">
+        <div class="product_info_div">
+        <label for="product_name_id" class="product_label">Название объявления:</label>    
+        <input id ="product_name_id" type="text" name="title"/>
+        </div>
+        <div class="product_info_div">
+        <label for="product_description_id" class="product_label">Описание объявления:</label>    
+        <input id ="product_description_id" type="text" name="description" class="product_info_input"/>
+        </div>
+        <div class="product_info_div">
+        <label for="product_price_id" class="product_label">Цена:</label>                   
+        <input id ="product_price_id" type="number" name="price" class="product_info_input"/>
+        </div>
+        <div class="product_info_div">
+        <label for="product_city_id" class="product_label">Город:</label>
+        <input id ="product_city_id" type="text" name="city" class="product_info_input"/>
+        </div>
+        <div class="product_info_div">
+        <label for="product_author_id" class="product_label">Имя:</label>
+        <input id="product_author_id" type="text" name="author" class="product_info_input"/>
+        </div>
+        <div class="product_info_div">
+        <label for="product_file1_id" class="product_label">Фото 1:</label>
+        <input id="product_file1_id" type="file" name="file1" class="product_info_input"/>
+        </div>
+        <div class="product_info_div">
+        <label for="product_file2_id" class="product_label">Фото 2:</label>
+        <input id="product_file2_id" type="file" name="file2" class="product_info_input"/>
+        </div>
+        <div class="product_info_div">
+        <label for="product_file3_id" class="product_label">Фото 3:</label>
+        <input id="product_file3_id" type="file" name="file3" class="product_info_input"/>
+        </div>
+        <input type="submit" value="Добавить товар"/>
+    </form>
+
+    <h3>Перейти к расписанию</h3>
+    <p><a href="/events">События</a></p>
+</body>
 </html>
