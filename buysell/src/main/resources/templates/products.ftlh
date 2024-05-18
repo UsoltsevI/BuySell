@@ -6,22 +6,47 @@
     <link rel="stylesheet" href="products.css">
 </head>
 <body>
-    <h1 class="title">BUYSELL</h1><hr>
-    <h3 class="part1">Товары со всей России!</h3>
-    <div class="search_menu">
-        <form action="/" method="get">
-            <label for="search_line_id" class="search_line_label">Поиск по названию объявления:</label>
-            <input id="search_line_id" class="search_line" type="text" name="title" placeholder="Введите запрос"/>
-            <input class="search_bottom" type="submit" value="Поиск"/>
-        </form>
-    </div>
-    <#list products as product>
-        <div class="product">
-            <p><b>${product.title}</b> ${product.price} руб. | <a href="/product/${product.id}">Подробнее...</a></p>
+    <header>
+        <ul class="title-list">
+            <li class="title-li-ref">
+                <a href="#" class="title-for">О нас</a>
+            </li>
+            <li class="title-li-ref">
+                <a href="#" class="title-for">Для бизнеса</a>
+            </li>
+            <li class="title-li-ref">
+                <a href="#" class="title-for">Каталоги</a>
+            </li>
+            <li class="title-li-ref">
+                <a href="#" class="title-for">Вход и регистрация</a>
+            </li>
+            <li class="title-li-ref">
+                <a href="#" class="title-for">
+                    <img src="cartIcon2.png" class="title-cart" width="40" height="40"/>
+                </a>
+            </li>
+        </ul>
+    </header>
+    <main class="main">
+        <div class="search-menu">
+            <form action="/" method="get">
+                <a href="#" class="buysell-search">BUYSELL</a>
+                <span class="search-pair">
+                    <input id="search_line_id" class="search-line" type="text" name="title" placeholder="Поиск по объявлениям"/>
+                    <input class="search-bottom" type="submit" value="Поиск"/>
+                </span>
+            </form>
         </div>
-        <#else>
-        <h3>Товаров нет</h3>
-    </#list>
+        <div class="list-of-products">
+            <#list products as product>
+                <div class="product">
+                    <p><b>${product.title}</b> ${product.price} руб. | <a class="product-more" href="/product/${product.id}">Подробнее...</a></p>
+                </div>
+                <#else>
+                <h3>Товаров нет</h3>
+            </#list>
+        </div>
+    </main>
 
     <h3>Создать новый товар</h3>
     <form action="/product/create" method="post" enctype="multipart/form-data">
